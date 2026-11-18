@@ -8,3 +8,5 @@
 #include "ahocorasick/ahocorasick.typ"
 #include "suffix array/suffix_array.typ"
 #include "suffix_automaton/suffix_automaton.typ"
+#include "manacher/manacher.typ"
+#include "errtree/errtree.typ"

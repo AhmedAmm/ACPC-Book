@@ -110,11 +110,5 @@ $ "ways"(v) = sum_c ("cnt"(x) + "ways"(x)) $
 - `count()` is the number of distinct substrings, `search(t)` is the first occurrence.
 - The last block of the code is the many-strings version (`build` on a `vector<int>`, and `calc(m, k)`).
 
-*Watch out*
-- `count()` starts its loop at $i = 0$, where $"link" = -1$, so `t[t[0].link]` reads outside the vector. Start the loop at $i = 1$, and store the sum in a `long long` (an `int` overflows for $n$ around $65000$, because the number of distinct substrings is about $n^2 / 2$).
-- `cnt` and `calc` are recursive and the link tree can be a chain, so for $n$ near $10^5$ or more run them with a big stack or make them iterative (process the states by decreasing `len`).
-- `kth` counts the repeats. For the $k$-th *distinct* substring change the group size as in section 3.
-- `search` returns the end position of the first occurrence, not the start.
-- In the many-strings version every separator must be different and the first element of the vector must be a separator.
 
 #raw(read("code.cpp"), lang: "cpp", block: true)

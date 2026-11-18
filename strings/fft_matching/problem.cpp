@@ -1,29 +1,30 @@
 void solve() {
-    int n;cin>>n;
-    string s;
-    cin >> s;
-    vector<int> a(n), b(n);
-    for (int i = 0; i < n; i++) {
-        a[i] = (s[i] == 'V');
-        b[n - 1 - i] = (s[i] == 'K');
-    }
-    vector<ll> c = multiply(a, b);
-    vector<int> bad(n, 0);
-    for (int idx = 0; idx < c.size(); idx++) {
-        int d = abs(idx - (n - 1));
-        if (d > 0 && d < n && c[idx] > 0) bad[d] = 1;
-    }
-    vector<ll> ans;
-    for (int k = 1; k <= n; k++) {
-        bool ok = true;
-        for (int m = k; m < n; m += k) {
-            if (bad[m]) { ok = false; break; }
+    string s,t;cin>>s>>t;
+    ll n=s.size();
+    ll m=t.size();
+    vector<DSU> st(n-m+1);
+    for(int a=0;a<6;a++){
+        for(int b=0;b<6;b++){
+            if(a==b)continue;
+            vector<ll> pos1,pos2;
+            for(auto c : s){
+                pos1.pb(c-'a'==a);
+            }
+            for(auto c : t){
+                pos2.pb(c-'a'==b);
+            }
+            std::reverse(pos2.begin(), pos2.end());
+            auto res= multiply(pos1,pos2);
+            for(int l=m-1;l<n;l++){
+                if(res[l]>0){
+                    st[l-m+1].merge(a+1,b+1);
+                }
+            }
         }
-        if (ok) {
-            ans.pb(k);
-        }
     }
-    cout<<ans.size()<<endl;
-    for(auto x : ans)cout<<x<<" ";
+    for(int i=0;i<n-m+1;i++){
+        cout<<6-st[i].count()<<" ";
+    }
     cout<<endl;
+ 
 }
