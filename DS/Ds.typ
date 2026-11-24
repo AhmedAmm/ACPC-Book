@@ -6,8 +6,14 @@
 
 #include "segment tree/sgtree.typ"
 
-#include "beats/beats.typ"
-
 #include "merge_sort/merge_sort.typ"
 
 #include "lazy/lazy.typ"
+
+#include "pst/pst.typ"
+
+#include "beats/beats.typ"
+
+#include "sqrt/sqrt.typ"
+
+#include "mo/mo.typ"

@@ -55,3 +55,7 @@ Cost: $O((n + q) log n)$.
 == 3. Code
 
 #raw(read("code.cpp"), lang: "cpp", block: true)
+
+== 2d bit
+
+#raw(read("code1.cpp"), lang: "cpp", block: true)
